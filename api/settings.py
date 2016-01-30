@@ -80,7 +80,7 @@ STATICFILES_FINDERS = (
 
 #  Make this unique, and don't share it with anybody.
 if not TESTING:
-    SECRET_KEY = os.environ['SECRET_KEY']
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 else:
     SECRET_KEY = 'secret'
 
