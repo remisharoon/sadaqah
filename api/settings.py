@@ -6,7 +6,7 @@ import os
 
 # import dj_database_url
 
-DEBUG = bool(os.environ.get('DEBUG', False))
+DEBUG = bool(os.environ.get('DEBUG', True))
 TEMPLATE_DEBUG = DEBUG
 
 TESTING = 'test' in sys.argv
@@ -18,7 +18,7 @@ ADMINS = (
     ('Remis Haroon', 'remisharoon@gmail.com'),
 )
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = []
 
 COMPANY = 'Acme'
 
@@ -246,8 +246,16 @@ REST_FRAMEWORK = {
 PROJECT_NAME = os.environ.get('PROJECT_NAME', 'Django REST Skeleton')
 HOST = os.environ.get('HOST', 'http://localhost')
 
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
-EMAIL_PORT = os.environ.get('EMAIL_PORT', 1025)
+#EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+#EMAIL_PORT = os.environ.get('EMAIL_PORT', 1025)
+
+# EMAIL SETTINGS:
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = "@gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "@gmail.com"
+EMAIL_HOST_PASSWORD = "password123"
 
 # DATABASES = {
 #     'default': dj_database_url.config(
