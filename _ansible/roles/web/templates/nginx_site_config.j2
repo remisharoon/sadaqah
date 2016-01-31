@@ -28,11 +28,15 @@ server {
         alias   {{ nginx_static_dir }};
     }
 
+    location / {
+        alias   {{ nginx_static_dir }}/app;
+    }
+
     location /media/ {
         alias   {{ nginx_media_dir }};
     }
 
-    location / {
+    location /api {
         if (-f {{ virtualenv_path }}/maintenance_on.html) {
             return 503;
         }
