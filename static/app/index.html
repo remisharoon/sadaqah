@@ -23,7 +23,7 @@
 
   </head>
 
-  <body ng-app="sadaqahApp" layout="row" ng-controller="UserController as ul" ng-cloak >
+  <body ng-app="sadaqahApp" layout="row" ng-cloak ng-controller="homeController">
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
                 md-component-id="left"
                 md-is-locked-open="$mdMedia('gt-sm')">
@@ -33,22 +33,18 @@
     </md-toolbar>
 
     <md-list>
-      <md-list-item><a href="#/view1">view1</a></md-list-item>
-      <md-list-item><a href="#/view2">view2</a></md-list-item>
-      <md-list-item><a href="#AddNewOrder"> Add New Order </a></md-list-item>    
-      <md-list-item ng-repeat="it in ul.users">
-          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-            {{it.name}}
-          </md-button>
-      </md-list-item>
+      <md-list-item><a href="#AddNewOrder"> {{ message }} </a></md-list-item>    
+      <md-list-item><a href="#AddNewOrder"> {{ name }} </a></md-list-item>  
+      <input type="text" ng-model="person.name" placeholder="Enter your name" />
+      <h5>Hello {{person.name}} </h5>  
+      <h5> {{clock}} </h5>  
     </md-list>
 
   </md-sidenav>
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings" ng-click="ul.toggleList()">
+        <md-button class="md-icon-button" aria-label="Settings">
           <md-icon md-svg-icon="./assets/svg/menu.svg"></md-icon>
         </md-button>
         <span flex></span>
@@ -64,17 +60,13 @@
     </md-toolbar>
     <div ng-view></div>      
   </div>  
-
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="/static/app/bower_components/angular/angular.js"></script>
     <script src="/static/app/bower_components/angular-route/angular-route.js"></script>
     <script src="/static/app/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/static/app/bower_components/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="/static/app/bower_components/angular-material/angular-material.js"></script>
     <script src="/static/app/src/app.js"></script>
-    <script src="/static/app/src/view1/view1.js"></script>
-    <script src="/static/app/src/users/Users.js"></script>
-    <script src="/static/app/src/users/UserController.js"></script>
-    <script src="/static/app/src/users/UserService.js"></script>
-
+    <script src="/static/app/src/controllers/homeController.js"></script>
   </body>
 </html>

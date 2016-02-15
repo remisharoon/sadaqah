@@ -1,24 +1,9 @@
 'use strict';
+// require all of the core libraries
+// require('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js');
 
-// Declare app level module which depends on views, and components
-// angular.module('sadaqahApp', [
-//   'ngRoute',
-//   'sadaqahApp.view1',
-//   'sadaqahApp.view2',
-//   'sadaqahApp.version'
-// ]).
-// config(['$routeProvider', function($routeProvider) {
-//   $routeProvider.otherwise({redirectTo: '/view1'});
-// }]);
-
-
-  var sadaqahApp = angular
-      .module('sadaqahApp', ['ngMaterial',
-			  'ngRoute',
-			  'sadaqahApp.view1',
-       			'users'])
+  var sadaqahApp = angular.module('sadaqahApp', ['ngMaterial', 'ngRoute', ])
       .config(function($mdThemingProvider, $mdIconProvider, $routeProvider){
-
           $mdIconProvider
               .defaultIconSet("./assets/svg/avatars.svg", 128)
               .icon("menu"       , "./assets/svg/menu.svg"        , 24)
@@ -35,13 +20,7 @@
            $routeProvider.
 					when('/AddNewOrder', {
 					        templateUrl: './src/templates/add-order.html',
-					        controller: 'AddOrderController'
+					        controller: 'homeController'
 					      }).
-           			otherwise({redirectTo: '/view1'});
+           			otherwise({redirectTo: '/AddNewOrder'});
       });
-
-	sadaqahApp.controller('AddOrderController', function($scope) {
-	     
-	    $scope.message = 'This is Add new order screen';
-	     
-	});      
